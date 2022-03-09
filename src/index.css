@@ -4,6 +4,8 @@
   box-sizing: border-box;
   color: white;
   text-decoration: none;
+  text-align: start;
+  font-family: 'Avenir', sans-serif;
 }
 
 html {
