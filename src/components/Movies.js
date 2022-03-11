@@ -30,6 +30,18 @@ function Movies() {
             alt=''
           ></img>
         </Wrap>
+        <Wrap>
+          <img
+            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
+            alt=''
+          ></img>
+        </Wrap>
+        <Wrap>
+          <img
+            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
+            alt=''
+          ></img>
+        </Wrap>
       </Content>
     </Container>
   );
