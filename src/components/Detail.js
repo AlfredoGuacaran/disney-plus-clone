@@ -1,17 +1,43 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { useParams } from 'react-router-dom';
+import db from '../firebase';
 
 function Detail() {
+  const { id } = useParams();
+  const [movie, setMovie] = useState();
+
+  useEffect(() => {
+    db.collection('movies')
+      .doc(id)
+      .get()
+      .then(doc => {
+        if (doc.exists) {
+          setMovie(doc.data());
+        } else {
+        }
+      });
+  });
+
   return (
     <Container>
       <Background>
         <img
-          src='https://image.tmdb.org/t/p/w1280/abnNjK3COZHZ4JQmzRbWhiWLum3.jpg'
+          src={
+            movie
+              ? `https://image.tmdb.org/t/p/original/${movie.backgroundImg}`
+              : ''
+          }
           alt=''
         ></img>
       </Background>
       <ImageTitle>
-        <img src='\images\pngwing.com.png' alt=''></img>
+        <img
+          src={
+            movie ? `https://image.tmdb.org/t/p/original/${movie.cardImg}` : ''
+          }
+          alt=''
+        ></img>
       </ImageTitle>
 
       <Controls>
@@ -31,11 +57,8 @@ function Detail() {
         </GroupWatchButton>
       </Controls>
 
-      <SubTitle>The Wonderful Winter of Mickey Mouse</SubTitle>
-      <Description>
-        La maravilla de la estación invernal lleva a Mickey Mouse y a sus amigos
-        en un viaje a través de tres historias mágicas.
-      </Description>
+      <SubTitle>{movie ? movie.subTitle : ''}</SubTitle>
+      <Description>{movie ? movie.description : ''}</Description>
     </Container>
   );
 }
@@ -65,9 +88,9 @@ const Background = styled.div`
 `;
 
 const ImageTitle = styled.div`
-  height: 30vh;
+  height: 60vh;
   min-height: 170px;
-  width: 35vw;
+  width: 30vw;
   margin: 30px 0px;
 
   img {
