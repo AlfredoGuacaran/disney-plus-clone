@@ -1,47 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
+import { selectMovies } from '../features/movie/movieSlice';
+import { useSelector } from 'react-redux';
 
 function Movies() {
+  const movies = useSelector(selectMovies);
+  console.log('This is movies ', movies);
   return (
     <Container>
       <h4>Recommended for You</h4>
       <Content>
-        <Wrap>
-          <img
-            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
-            alt=''
-          ></img>
-        </Wrap>
-        <Wrap>
-          <img
-            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
-            alt=''
-          ></img>
-        </Wrap>
-        <Wrap>
-          <img
-            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
-            alt=''
-          ></img>
-        </Wrap>
-        <Wrap>
-          <img
-            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
-            alt=''
-          ></img>
-        </Wrap>
-        <Wrap>
-          <img
-            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
-            alt=''
-          ></img>
-        </Wrap>
-        <Wrap>
-          <img
-            src='https://sm.ign.com/t/ign_es/tv/l/los-simpso/los-simpson-tv_g5rf.300.jpg'
-            alt=''
-          ></img>
-        </Wrap>
+        {movies &&
+          movies.map(
+            movie =>
+              movie.cardImg && (
+                <Wrap key={movie.id}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${movie.cardImg}`}
+                    alt=''
+                  ></img>
+                </Wrap>
+              )
+          )}
       </Content>
     </Container>
   );
