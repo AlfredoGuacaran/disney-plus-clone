@@ -21,44 +21,46 @@ function Detail() {
 
   return (
     <Container>
-      <Background>
-        <img
-          src={
-            movie
-              ? `https://image.tmdb.org/t/p/original/${movie.backgroundImg}`
-              : ''
-          }
-          alt=''
-        ></img>
-      </Background>
-      <ImageTitle>
-        <img
-          src={
-            movie ? `https://image.tmdb.org/t/p/original/${movie.cardImg}` : ''
-          }
-          alt=''
-        ></img>
-      </ImageTitle>
+      {movie ? (
+        <>
+          <Background>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${
+                movie.backgroundImg ? movie.backgroundImg : movie.cardImg
+              }`}
+              alt=''
+            ></img>
+          </Background>
+          <ImageTitle>
+            <img
+              src={`https://image.tmdb.org/t/p/original/${movie.cardImg}`}
+              alt=''
+            ></img>
+          </ImageTitle>
 
-      <Controls>
-        <PlayButton>
-          <img src='/images/play-icon-black.png' alt=''></img>
-          <span>PLAY</span>
-        </PlayButton>
-        <TrailerButton>
-          <img src='/images/play-icon-white.png' alt=''></img>
-          <span>TRAILER</span>
-        </TrailerButton>
-        <AddButton>
-          <span>+</span>
-        </AddButton>
-        <GroupWatchButton>
-          <img src='/images/group-icon.png' alt=''></img>
-        </GroupWatchButton>
-      </Controls>
+          <Controls>
+            <PlayButton>
+              <img src='/images/play-icon-black.png' alt=''></img>
+              <span>PLAY</span>
+            </PlayButton>
+            <TrailerButton>
+              <img src='/images/play-icon-white.png' alt=''></img>
+              <span>TRAILER</span>
+            </TrailerButton>
+            <AddButton>
+              <span>+</span>
+            </AddButton>
+            <GroupWatchButton>
+              <img src='/images/group-icon.png' alt=''></img>
+            </GroupWatchButton>
+          </Controls>
 
-      <SubTitle>{movie ? movie.subTitle : ''}</SubTitle>
-      <Description>{movie ? movie.description : ''}</Description>
+          <SubTitle>{movie.subTitle}</SubTitle>
+          <Description>{movie.description}</Description>
+        </>
+      ) : (
+        ''
+      )}
     </Container>
   );
 }
@@ -88,7 +90,7 @@ const Background = styled.div`
 `;
 
 const ImageTitle = styled.div`
-  height: 60vh;
+  height: 40vh;
   min-height: 170px;
   width: 30vw;
   margin: 30px 0px;

@@ -1,40 +1,53 @@
 import React from 'react';
 import styled from 'styled-components';
+import { selectUserName, selectUserPhoto } from '../features/user/userSlice';
+import { useSelector } from 'react-redux';
 
 function Header() {
-  return (
-    <Nav>
-      <Logo src='/images/logo.svg' />
-      <NavMenu>
-        <a href='/'>
-          <img src='/images/home-icon.svg' alt='' />
-          <span>HOME</span>
-        </a>
-        <a href='/'>
-          <img src='/images/search-icon.svg' alt='' />
-          <span>SEARCH</span>
-        </a>
-        <a href='/'>
-          <img src='/images/watchlist-icon.svg' alt='' />
-          <span>WATCHLIST</span>
-        </a>
-        <a href='/'>
-          <img src='/images/original-icon.svg' alt='' />
-          <span>ORIGINALS</span>
-        </a>
-        <a href='/'>
-          <img src='/images/movie-icon.svg' alt='' />
-          <span>MOVIES</span>
-        </a>
-        <a href='/'>
-          <img src='/images/series-icon.svg' alt='' />
-          <span>SERIES</span>
-        </a>
-      </NavMenu>
+  const userName = useSelector(selectUserName);
+  const userPhoto = useSelector(selectUserPhoto);
 
-      <UserImg src='https://avatars.githubusercontent.com/u/79604260?s=400&u=c988020d6e8e4f1acfdb483a8e02682bc1b716ff&v=4' />
-    </Nav>
-  );
+  if (userName)
+    return (
+      <Nav>
+        <Logo src='/images/logo.svg' />
+        <NavMenu>
+          <a href='/'>
+            <img src='/images/home-icon.svg' alt='' />
+            <span>HOME</span>
+          </a>
+          <a href='/'>
+            <img src='/images/search-icon.svg' alt='' />
+            <span>SEARCH</span>
+          </a>
+          <a href='/'>
+            <img src='/images/watchlist-icon.svg' alt='' />
+            <span>WATCHLIST</span>
+          </a>
+          <a href='/'>
+            <img src='/images/original-icon.svg' alt='' />
+            <span>ORIGINALS</span>
+          </a>
+          <a href='/'>
+            <img src='/images/movie-icon.svg' alt='' />
+            <span>MOVIES</span>
+          </a>
+          <a href='/'>
+            <img src='/images/series-icon.svg' alt='' />
+            <span>SERIES</span>
+          </a>
+        </NavMenu>
+        <UserImg src='https://avatars.githubusercontent.com/u/79604260?s=400&u=c988020d6e8e4f1acfdb483a8e02682bc1b716ff&v=4' />
+      </Nav>
+    );
+
+  if (!userName)
+    return (
+      <Nav>
+        <Logo src='/images/logo.svg' />
+        <Login>Login</Login>
+      </Nav>
+    );
 }
 
 export default Header;
@@ -102,3 +115,5 @@ const UserImg = styled.img`
   border-radius: 50%;
   cursor: pointer;
 `;
+
+const Login = styled.div``;
