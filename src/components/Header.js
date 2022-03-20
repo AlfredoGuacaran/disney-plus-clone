@@ -1,11 +1,57 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { selectUserName, selectUserPhoto } from '../features/user/userSlice';
-import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {
+  selectUserName,
+  selectUserPhoto,
+  setUserLogin,
+  setSignOut,
+} from '../features/user/userSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { auth, provider } from '../firebase';
 
 function Header() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
+
+  const signIn = () => {
+    auth.signInWithPopup(provider).then(result => {
+      let user = result.user;
+      dispatch(
+        setUserLogin({
+          name: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+        })
+      );
+      navigate('/');
+    });
+  };
+
+  const signOut = () => {
+    auth.signOut().then(() => {
+      dispatch(setSignOut());
+      navigate('/login');
+    });
+  };
+
+  //permanencia de el login cuando se hacer refresh a la pagina
+  useEffect(() => {
+    auth.onAuthStateChanged(async user => {
+      if (user) {
+        dispatch(
+          setUserLogin({
+            name: user.displayName,
+            email: user.email,
+            photo: user.photoURL,
+          })
+        );
+        navigate('/');
+      }
+    });
+  }, []);
 
   if (userName)
     return (
@@ -37,7 +83,7 @@ function Header() {
             <span>SERIES</span>
           </a>
         </NavMenu>
-        <UserImg src='https://avatars.githubusercontent.com/u/79604260?s=400&u=c988020d6e8e4f1acfdb483a8e02682bc1b716ff&v=4' />
+        <UserImg onClick={signOut} src={userPhoto} />
       </Nav>
     );
 
@@ -45,7 +91,9 @@ function Header() {
     return (
       <Nav>
         <Logo src='/images/logo.svg' />
-        <Login>Login</Login>
+        <LoginContainer>
+          <Login onClick={signIn}>Login</Login>
+        </LoginContainer>
       </Nav>
     );
 }
@@ -116,4 +164,25 @@ const UserImg = styled.img`
   cursor: pointer;
 `;
 
-const Login = styled.div``;
+const Login = styled.div`
+  border: 1px solid #f9f9f9;
+  padding: 8px 16px;
+  border-radius: 4px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: all 0.2s ease 0s;
+
+  cursor: pointer;
+  &:hover {
+    background-color: #f9f9f9;
+    color: #000;
+    border-color: transparent;
+  }
+`;
+
+const LoginContainer = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+`;
