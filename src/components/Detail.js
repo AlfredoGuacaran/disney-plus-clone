@@ -11,7 +11,7 @@ function Detail() {
     db.collection('movies')
       .doc(id)
       .get()
-      .then(doc => {
+      .then((doc) => {
         if (doc.exists) {
           setMovie(doc.data());
         } else {
@@ -24,18 +24,10 @@ function Detail() {
       {movie ? (
         <>
           <Background>
-            <img
-              src={`https://image.tmdb.org/t/p/original/${
-                movie.backgroundImg ? movie.backgroundImg : movie.cardImg
-              }`}
-              alt=''
-            ></img>
+            <img src={`https://image.tmdb.org/t/p/original/${movie.backgroundImg ? movie.backgroundImg : movie.cardImg}`} alt=''></img>
           </Background>
           <ImageTitle>
-            <img
-              src={`https://image.tmdb.org/t/p/original/${movie.cardImg}`}
-              alt=''
-            ></img>
+            <img src={`https://image.tmdb.org/t/p/original/${movie.cardImg}`} alt=''></img>
           </ImageTitle>
 
           <Controls>
@@ -70,7 +62,8 @@ export default Detail;
 const Container = styled.div`
   min-height: calc(100vh - 70px);
   padding: 0 calc(3.5vw + 5px);
-  positicon: relative;
+  padding-top: 70px;
+  position: relative;
 `;
 
 const Background = styled.div`

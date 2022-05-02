@@ -10,7 +10,7 @@ const firebaseConfig = {
   messagingSenderId: '248081092439',
   appId: '1:248081092439:web:cc05c564a5d6242b9db812',
 };
-
+console.log(JSON.stringify(firebaseConfig));
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
@@ -34,8 +34,7 @@ const moviesARRAY = [
     id: 655571,
     original_language: 'en',
     original_title: 'One Day at Disney',
-    overview:
-      'Discover the inspiring personal stories of the people behind the enduring magic of Disney.',
+    overview: 'Discover the inspiring personal stories of the people behind the enduring magic of Disney.',
     popularity: 4.867,
     poster_path: '/q0g2K64QOoRhVVhCzF3WLMIoxtS.jpg',
     release_date: '2019-12-03',
@@ -237,8 +236,7 @@ const moviesARRAY = [
     genre_ids: [10402, 10751],
     id: 769645,
     original_language: 'en',
-    original_title:
-      'The Wonderful World of Disney: Magical Holiday Celebration',
+    original_title: 'The Wonderful World of Disney: Magical Holiday Celebration',
     overview:
       'Original hosts Derek and Julianne Hough return, kicking off the night with a glittering new holiday performance, while Trevor Jackson (Freeform’s “grown-ish”) hosts from Walt Disney World Resort in Florida. Together, they will take viewers on a wintry ride through fan-favorite performances and new heartwarming family moments.',
     popularity: 1.761,
@@ -356,8 +354,7 @@ const moviesARRAY = [
     id: 708392,
     original_language: 'en',
     original_title: 'Tangled: The Musical',
-    overview:
-      "A live recording of Disney's Tangled: The Musical, an original live stage production exclusively on the Disney Magic cruise ship.",
+    overview: "A live recording of Disney's Tangled: The Musical, an original live stage production exclusively on the Disney Magic cruise ship.",
     popularity: 4.649,
     poster_path: '/pwKFyav6nNI4ONzv3tBTn3jzOU7.jpg',
     release_date: '2020-07-24',
@@ -373,8 +370,7 @@ const moviesARRAY = [
     id: 897298,
     original_language: 'en',
     original_title: 'Pixar 2021 Disney+ Day Special',
-    overview:
-      'Join Pete Docter for a tour around Pixar and get a sneak peek at several upcoming Disney+ releases.',
+    overview: 'Join Pete Docter for a tour around Pixar and get a sneak peek at several upcoming Disney+ releases.',
     popularity: 11.229,
     poster_path: '/lwm4suR4rF61kiNUqEQEdGE55QU.jpg',
     release_date: '2021-11-12',
@@ -423,8 +419,7 @@ const moviesARRAY = [
     id: 850056,
     original_language: 'en',
     original_title: 'Disney Princess Remixed: An Ultimate Princess Celebration',
-    overview:
-      'A music special celebrating the empowering attributes of Disney princesses and queens through re-imagined performances of their iconic songs by Disney stars.',
+    overview: 'A music special celebrating the empowering attributes of Disney princesses and queens through re-imagined performances of their iconic songs by Disney stars.',
     popularity: 3.307,
     poster_path: '/aanpR48XsGzRFKx79aHLbVQsNEu.jpg',
     release_date: '2021-08-27',
@@ -456,10 +451,8 @@ const moviesARRAY = [
     genre_ids: [10402, 99, 10770],
     id: 880862,
     original_language: 'en',
-    original_title:
-      'The Most Magical Story on Earth: 50 Years of Walt Disney World',
-    overview:
-      'A historical journey spanning half a century and beyond at Walt Disney World, featuring spectacular visuals, musical performances, and interviews.',
+    original_title: 'The Most Magical Story on Earth: 50 Years of Walt Disney World',
+    overview: 'A historical journey spanning half a century and beyond at Walt Disney World, featuring spectacular visuals, musical performances, and interviews.',
     popularity: 4.798,
     poster_path: '/xotGafR6hFdfYJAzxqF5T1bE2tm.jpg',
     release_date: '2021-10-01',
@@ -492,8 +485,7 @@ const moviesARRAY = [
     id: 792684,
     original_language: 'en',
     original_title: 'Disney after Dark.',
-    overview:
-      'A look at a Disney Hotel once the lights are down and the guests are away... and the mystery that may or may not be hidden from the public eye.',
+    overview: 'A look at a Disney Hotel once the lights are down and the guests are away... and the mystery that may or may not be hidden from the public eye.',
     popularity: 0.6,
     poster_path: '/1dSxsrp3N30w2lgGT3YKViIUPW2.jpg',
     release_date: '2021-01-30',
@@ -509,8 +501,7 @@ const moviesARRAY = [
     id: 899878,
     original_language: 'en',
     original_title: "Disney's Holiday Magic Quest",
-    overview:
-      'The stars from "ZOMBIES" navigate a series of new challenges and obstacles through a variety of iconic and immersive Walt Disney World attractions.',
+    overview: 'The stars from "ZOMBIES" navigate a series of new challenges and obstacles through a variety of iconic and immersive Walt Disney World attractions.',
     popularity: 3.323,
     poster_path: '/mP5I5x5XqOwfFpWr8qylH5zBvrn.jpg',
     release_date: '2021-12-03',
@@ -558,10 +549,8 @@ const moviesARRAY = [
     genre_ids: [10402, 10751],
     id: 905029,
     original_language: 'en',
-    original_title:
-      'The Wonderful World of Disney: Magical Holiday Celebration',
-    overview:
-      'Celebrity musical performances; sneak peeks at new adventures to come at Disney Parks.',
+    original_title: 'The Wonderful World of Disney: Magical Holiday Celebration',
+    overview: 'Celebrity musical performances; sneak peeks at new adventures to come at Disney Parks.',
     popularity: 1.132,
     poster_path: '/1vsehA0goaU4MmOBAxP7W0XqWsk.jpg',
     release_date: '2021-11-28',
@@ -593,8 +582,7 @@ const moviesARRAY = [
     id: 538040,
     original_language: 'en',
     original_title: "Disney's Broadway Hits at London's Royal Albert Hall",
-    overview:
-      "Experience the Disney on Broadway songs you know and love in a whole new way from the comfort of your home. Disney's Broadway Hits at Royal Albert Hall is now available on demand!",
+    overview: "Experience the Disney on Broadway songs you know and love in a whole new way from the comfort of your home. Disney's Broadway Hits at Royal Albert Hall is now available on demand!",
     popularity: 3.983,
     poster_path: '/1b5DD2dz9CqLrG5v6pFtaaVNxRY.jpg',
     release_date: '2016-12-21',
@@ -610,8 +598,7 @@ const moviesARRAY = [
     id: 818367,
     original_language: 'en',
     original_title: "Let's Be Tigers",
-    overview:
-      "Avalon’s not ready to process the loss of her mother, but when she's put in charge of a 4-year-old for one night, she finds more comfort than she ever could have expected.",
+    overview: "Avalon’s not ready to process the loss of her mother, but when she's put in charge of a 4-year-old for one night, she finds more comfort than she ever could have expected.",
     popularity: 14.112,
     poster_path: '/hPaF9ICdWIAubVAsM9t8elG5ddV.jpg',
     release_date: '2021-05-28',
@@ -661,8 +648,7 @@ const moviesARRAY = [
     id: 779047,
     original_language: 'en',
     original_title: 'Us Again',
-    overview:
-      'In a vibrant city pulsating with rhythm and movement, an elderly man and his young-at-heart wife rekindle their youthful passion for life and each other on one magical night.',
+    overview: 'In a vibrant city pulsating with rhythm and movement, an elderly man and his young-at-heart wife rekindle their youthful passion for life and each other on one magical night.',
     popularity: 9.501,
     poster_path: '/zKnenwvQB6xA4mxc8zxL2S8qVbR.jpg',
     release_date: '2021-03-03',
@@ -712,8 +698,7 @@ const moviesARRAY = [
     id: 655571,
     original_language: 'en',
     original_title: 'One Day at Disney',
-    overview:
-      'Discover the inspiring personal stories of the people behind the enduring magic of Disney.',
+    overview: 'Discover the inspiring personal stories of the people behind the enduring magic of Disney.',
     popularity: 4.867,
     poster_path: '/q0g2K64QOoRhVVhCzF3WLMIoxtS.jpg',
     release_date: '2019-12-03',
@@ -729,8 +714,7 @@ const moviesARRAY = [
     id: 650410,
     original_language: 'en',
     original_title: 'Disney Hall of Villains',
-    overview:
-      'Superstar host Meg Donnelly takes you on a journey down a haunted hallway where behind every door awaits a villain-tastic surprise!',
+    overview: 'Superstar host Meg Donnelly takes you on a journey down a haunted hallway where behind every door awaits a villain-tastic surprise!',
     popularity: 1.796,
     poster_path: '/xQaZTFiNjLExDAg9sCKv0G0fj0c.jpg',
     release_date: '2019-10-13',
@@ -778,8 +762,7 @@ const moviesARRAY = [
     genre_ids: [10751],
     id: 651780,
     original_language: 'en',
-    original_title:
-      'The Wonderful World of Disney: Magical Holiday Celebration',
+    original_title: 'The Wonderful World of Disney: Magical Holiday Celebration',
     overview:
       "The Wonderful World of Disney: Magical Holiday Celebration kicked off the holiday season with one grand TV special. Matthew Morrison, Emma Bunton, and Jesse Palmer co-hosted the holiday special on Thanksgiving night from Cinderella Castle at Walt Disney World Resort in Florida and Sleeping Beauty Castle at Disneyland Resort in California. Today's favorite artists also show up to the happiest places on Earth to get in on the festive fun. From epic duets to solo numbers, this TV special is perfect holiday entertainment.",
     popularity: 1.5,
@@ -831,8 +814,7 @@ const moviesARRAY = [
     id: 642271,
     original_language: 'en',
     original_title: 'The Little Mermaid Live!',
-    overview:
-      'Live musical performances by a star-studded cast will be interwoven into the broadcast of the animated classic.',
+    overview: 'Live musical performances by a star-studded cast will be interwoven into the broadcast of the animated classic.',
     popularity: 5.891,
     poster_path: '/mVZklqsmbbkOgTG4o0nVtM8rJ82.jpg',
     release_date: '2019-11-05',
@@ -865,8 +847,7 @@ const moviesARRAY = [
     id: 607907,
     original_language: 'fr',
     original_title: "Phantom Manor : Une Attraction Pleine d'Esprits",
-    overview:
-      'Join us for a very private tour of this special place with the Imagineers, the designers of the Disney Parks who participated in the great refurbishment of the attraction.',
+    overview: 'Join us for a very private tour of this special place with the Imagineers, the designers of the Disney Parks who participated in the great refurbishment of the attraction.',
     popularity: 0.6,
     poster_path: '/nNBwsXWlLJmpLNoZU9RR6zUezHq.jpg',
     release_date: '2019-06-07',

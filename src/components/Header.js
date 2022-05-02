@@ -1,14 +1,9 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
-import {
-  selectUserName,
-  selectUserPhoto,
-  setUserLogin,
-  setSignOut,
-} from '../features/user/userSlice';
+import { selectUserName, selectUserPhoto, setUserLogin, setSignOut } from '../features/user/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { auth, provider } from '../firebase';
+import BurgerMenu from './BurgerMenu';
 
 function Header() {
   const dispatch = useDispatch();
@@ -17,7 +12,7 @@ function Header() {
   const userPhoto = useSelector(selectUserPhoto);
 
   const signIn = () => {
-    auth.signInWithPopup(provider).then(result => {
+    auth.signInWithPopup(provider).then((result) => {
       let user = result.user;
       dispatch(
         setUserLogin({
@@ -39,7 +34,7 @@ function Header() {
 
   //permanencia de el login cuando se hacer refresh a la pagina
   useEffect(() => {
-    auth.onAuthStateChanged(async user => {
+    auth.onAuthStateChanged(async (user) => {
       if (user) {
         dispatch(
           setUserLogin({
@@ -84,6 +79,9 @@ function Header() {
           </a>
         </NavMenu>
         <UserImg onClick={signOut} src={userPhoto} />
+        <Colapsable>
+          <BurgerMenu />
+        </Colapsable>
       </Nav>
     );
 
@@ -106,6 +104,15 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   padding: 0 36px;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  @media (max-width: 960px) {
+    justify-content: space-between;
+  }
 `;
 
 const Logo = styled.img`
@@ -117,6 +124,9 @@ const NavMenu = styled.div`
   flex: 1;
   margin-left: 25px;
   align-items: center;
+  @media (max-width: 960px) {
+    display: none;
+  }
 
   a {
     display: flex;
@@ -185,4 +195,10 @@ const LoginContainer = styled.div`
   flex: 1;
   display: flex;
   justify-content: flex-end;
+`;
+
+const Colapsable = styled.div`
+  @media (min-width: 960px) {
+    display: none;
+  }
 `;

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';import styled from 'styled-components';
 import ImgSlider from './ImgSlider';
 import Viewers from './Viewers';
 import Movies from './Movies';
@@ -11,8 +10,8 @@ function Home() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    db.collection('movies').onSnapshot(snapshot => {
-      let tempMovies = snapshot.docs.map(doc => {
+    db.collection('movies').onSnapshot((snapshot) => {
+      let tempMovies = snapshot.docs.map((doc) => {
         return { id: doc.id, ...doc.data() };
       });
 
@@ -33,5 +32,6 @@ export default Home;
 const Container = styled.main`
   min-height: calc(100vh - 70px);
   padding: 0 calc(3.5vw + 5px);
+  padding-top: 60px;
   position: relative;
 `;
