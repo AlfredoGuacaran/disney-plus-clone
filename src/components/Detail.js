@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import styled from 'styled-components';
+import React, { useEffect, useState } from 'react';import styled from 'styled-components';
 import { useParams } from 'react-router-dom';
 import db from '../firebase';
 
@@ -98,6 +97,8 @@ const ImageTitle = styled.div`
 const Controls = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
 `;
 const PlayButton = styled.button`
   display: flex;
@@ -108,7 +109,6 @@ const PlayButton = styled.button`
   background: rgb(249, 249, 249);
   border: none;
   padding: 0px 24px;
-  margin-right: 22px;
   letter-spacing: 1.8px;
   cursor: pointer;
 
