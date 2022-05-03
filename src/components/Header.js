@@ -46,7 +46,7 @@ function Header() {
         navigate('/');
       }
     });
-  }, []);
+  }, [dispatch, navigate]);
 
   if (userName)
     return (
@@ -151,7 +151,7 @@ const NavMenu = styled.div`
         left: 0;
         right: 0;
         bottom: -6px;
-        opatity: 0;
+        opacity: 0;
         transform: scaleX(0);
         transform-origin: left center;
         transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
