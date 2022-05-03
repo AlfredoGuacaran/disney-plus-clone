@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';import styled from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { selectUserName, selectUserPhoto, setUserLogin, setSignOut } from '../features/user/userSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { auth, provider } from '../firebase';
@@ -51,7 +51,9 @@ function Header() {
   if (userName)
     return (
       <Nav>
-        <Logo src='/images/logo.svg' />
+        <Link to={'/'}>
+          <Logo src='/images/logo.svg' />
+        </Link>
         <NavMenu>
           <a href='/'>
             <img src='/images/home-icon.svg' alt='' />
@@ -88,7 +90,9 @@ function Header() {
   if (!userName)
     return (
       <Nav>
-        <Logo src='/images/logo.svg' />
+        <Link to={'/'}>
+          <Logo src='/images/logo.svg' />
+        </Link>
         <LoginContainer>
           <Login onClick={signIn}>Login</Login>
         </LoginContainer>
@@ -117,6 +121,7 @@ const Nav = styled.div`
 
 const Logo = styled.img`
   width: 80px;
+  cursor: pointer;
 `;
 
 const NavMenu = styled.div`

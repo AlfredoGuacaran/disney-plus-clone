@@ -98,7 +98,8 @@ const Controls = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 22px;
+  row-gap: 22px;
+  column-gap: 22px;
 `;
 const PlayButton = styled.button`
   display: flex;
@@ -130,21 +131,20 @@ const TrailerButton = styled(PlayButton)`
   }
 `;
 const AddButton = styled.button`
-margin-right: 16px;
+  margin-right: 16px;
   width: 44px;
   height: 44px;
-  display flex;
+  display: flex;
   align-items: center;
-  justify-content:center;
+  justify-content: center;
   border-radius: 50%;
   border: 2px solid white;
-  background-color: rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   cursor: pointer;
 
-  span{
+  span {
     font-size: 30px;
     color: white;
-    
   }
 `;
 const GroupWatchButton = styled(AddButton)`
